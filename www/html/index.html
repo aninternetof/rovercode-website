@@ -21,6 +21,12 @@
 	<![endif]-->
 
 	<style>
+
+		html, body
+		{
+			height: 100%;
+		}
+
 		body {
 			font-family: "Open Sans";
 			font-size: 14px;
@@ -32,8 +38,50 @@
 
 		@media (min-width: 1200px) {
 		  .container {
-			width: 1200px;
+				width: 1200px;
 		  }
+		}
+
+		/* If the screen is large enough, make a full-height
+		 * landing page.
+		 */
+		@media (min-width: 1200px) and (min-height: 600px){
+			.container {
+				height: 100%;
+			}
+
+			.title {
+				height: 45%;
+			}
+
+			.screenshot {
+				height: 50%;
+			}
+
+			.screenshot img{
+				height: 100%;
+			}
+		}
+
+		/* Otherwise, just put some space in.
+		 */
+		@media not all and (min-width: 1200px) and (min-height: 600px){
+			.screenshot img{
+				margin-top: 50px;
+			}
+		}
+
+		.vcenter {
+			display: inline-block;
+			vertical-align: middle;
+			float: none;
+		}
+
+		.panel {
+			background-color: white;
+			border-color: #E7E7E7;
+			box-shadow: 2px 2px 5px #cccccc;
+			border-radius: 0;
 		}
 
 		p {
@@ -61,7 +109,11 @@
 			margin-bottom: 2px;
 		}
 
-		img {
+		.img {
+			max-width: 100%;
+		}
+
+		.screenshot img {
 			max-width: 100%;
 			box-shadow: 2px 2px 5px #cccccc;
 		}
@@ -88,7 +140,17 @@
 			word-wrap: break-word;
 		}
 
-		.instructions {
+		.btn {
+			font-size: 24px;
+			border-radius: 10px;
+		}
+
+		.demo-button {
+			background-color: #259dff;
+		}
+
+		.get-started-button {
+			background-color: #92d3aa;
 		}
 
 		.terminal {
@@ -124,9 +186,6 @@
 		.description em {
 			color: #259dff;
 			font-style: normal;
-		}
-
-		.screenshot {
 		}
 
 		.description-area {
@@ -200,8 +259,7 @@
 	</div>
 	<div id="navbar" class="collapse navbar-collapse">
 		<ul class="nav navbar-nav navbar-right">
-		<li class="active"><a href="http://rovercode.org">Home</a></li>
-		<li id="get-started" class="navbar-nav-em glow-me"><a href="https://github.com/aninternetof/rover-code/wiki/Getting-Set-Up">Get Started</a></li>
+		<li id="get-started" class="navbar-nav-em"><a href="https://github.com/aninternetof/rover-code/wiki/Getting-Set-Up">Get Started</a></li>
 		<li><a href="https://github.com/aninternetof/rover-code/wiki/Features">Features</a></li>
 		<li><a href="https://github.com/aninternetof/rover-code/wiki/Docs-Home">Docs</a></li>
 		<li><a href="http://mail.rovercode.org">Dev Mailing List</a></li>
@@ -212,70 +270,112 @@
 </nav>
 
 <div class='container'>
-	<div class='row' style='margin-top:0'>
-		<div class='col-xs-12 col-s-12 col-md-6 col-lg-6'>
-			<div class='description-area'>
-				<h1>rovercode</h1>
-				<div class='description'>Powerful <em>block-based programming</em> for educational robots</div>
-			</div>
-		</div> <!--/column -->
-	</div> <!--/row -->
-	<div class='row'>
-		<div class='col-xs-12 col-s-12 col-md-6 col-lg-8'>
-			<div class='terminal well well-sm' style='margin-top: 20px'>
-				<p><em>$</em> git clone https://git.io/rovercode.git && sudo ./rovercode/setup.sh</p>
+	<div class='title'>
+		<div class='row' style='margin-top:0'>
+			<div class='col-xs-12 col-s-12 col-md-6 col-lg-6'>
+				<div class='description-area'>
+					<h1>rovercode</h1>
+					<div class='description'>Powerful <em>block-based programming</em> for educational robots</div>
+				</div>
+			</div> <!--/column -->
+		</div> <!--/row -->
+		<div class='row'>
+			<div class='col-xs-12 col-s-12 col-md-6 col-lg-8'>
+				<div class='terminal well well-sm' style='margin-top: 20px'>
+					<p><em>$</em> git clone https://git.io/rovercode.git && sudo ./rovercode/setup.sh</p>
+				</div>
 			</div>
 		</div>
 	</div>
-	<div class='row' style='margin-top: 20px'>
-		<div class='col-xs-12 col-s-12 col-md-3 col-lg-3'>
-			<h2 style='margin-top: 0'>Free and open-source</h2>
-			<p>Never paid and always improving. Some modules MIT; some GPLv2.</p>
-			<h2>Web-app centered</h2>
-			<p>Works with just a browser, on any device. Built on <a href='https://developers.google.com/blockly/'>Blockly</a>.</p>
-			<h2>Choose your hardware</h2>
-			<p>Host from a C.H.I.P, Raspberry Pi Zero, or a BeagleBone Black robot.</p>
-				<div class='custom-button well' style='padding: 5px 0 5px 0; margin-top: 20px'><a class='text-center custom-button-text' href="http://codetherover.com/demo/rover-code/www/mission-control.html"><div id='live-demo'> Live Demo </div></a></div>
-		</div>
-		<div class='col-xs-12 col-s-12 col-md-9 col-lg-9'>
-  			<div class='screenshot text-left'>
-  				<img src='./img/screenshot.jpg'>
-  			</div>
-		</div> <!--/column -->
-	</div> <!--/row -->
 
-
+	<div class='screenshot text-center'>
+		<img src='./img/screenshot.jpg'>
+	</div>
 
 </div> <!-- /container -->
 
-<div class='well' style='margin-top: 40px; text-align: center'>
-	The mission of the rovercode.org community is to provide educators with a capable, easy-to-use, block-based programming environment that can be hosted on low-cost robotics hardware.
+<div class='row' style='margin-top: 75px'>
+	<div class='col-xs-3 col-s-3 col-md-3 col-lg-3'></div>
+	<div class='col-xs-12 col-s-12 col-md-6 col-lg-6 panel' id='the-panel'>
+		<div class='row'>
+			<div class='col-xs-0 col-s-0 col-md-1 col-lg-1 text-center vcenter'></div>
+			<div class='col-xs-8 col-s-8 col-md-6 col-lg-6 text-center vcenter' style='padding-right: 0; margin-bottom: 20px'>
+				<div>
+					<h2>Free and open-source</h2>
+					<p>Never paid and always improving. Some modules MIT; some GPLv2.</p>
+				</div>
+			</div>
+			<div class='col-xs-2 col-s-2 col-md-4 col-lg-4 text-center vcenter' style='padding-left: 0'>
+				<img src='https://assets-cdn.github.com/images/modules/logos_page/GitHub-Mark.png' style="width:100%;"/>
+			</div>
+		</div>
+	</div>
+</div>
+
+<div class='row' style='margin-top: 75px'>
+	<div class='col-xs-3 col-s-3 col-md-3 col-lg-3'></div>
+	<div class='col-xs-12 col-s-12 col-md-6 col-lg-6 panel' id='the-panel'>
+		<div class='row'>
+			<div class='col-xs-0 col-s-0 col-md-1 col-lg-1 text-center vcenter'></div>
+			<div class='col-xs-2 col-s-2 col-md-4 col-lg-4 text-center vcenter' style='padding-left: 0'>
+				<img src='https://assets-cdn.github.com/images/modules/logos_page/GitHub-Mark.png' style="width:100%;"/>
+			</div>
+			<div class='col-xs-8 col-s-8 col-md-6 col-lg-6 text-center vcenter' style='padding-right: 0; margin-bottom: 20px'>
+				<div>
+					<h2>Web-app centered</h2>
+					<p>Works with just a browser, on any device. Built on <a href='https://developers.google.com/blockly/'>Blockly</a>.</p>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+
+<div class='row' style='margin-top: 75px'>
+	<div class='col-xs-3 col-s-3 col-md-3 col-lg-3'></div>
+	<div class='col-xs-12 col-s-12 col-md-6 col-lg-6 panel' id='the-panel'>
+		<div class='row'>
+			<div class='col-xs-0 col-s-0 col-md-1 col-lg-1 text-center vcenter'></div>
+			<div class='col-xs-8 col-s-8 col-md-6 col-lg-6 text-center vcenter' style='padding-right: 0; margin-bottom: 20px'>
+				<div>
+					<h2>Choose your hardware</h2>
+					<p>Host from a C.H.I.P, Raspberry Pi Zero, or a BeagleBone Black robot.</p>
+				</div>
+			</div>
+			<div class='col-xs-2 col-s-2 col-md-4 col-lg-4 text-center vcenter' style='padding-left: 0'>
+				<img src='https://assets-cdn.github.com/images/modules/logos_page/GitHub-Mark.png' style="width:100%;"/>
+			</div>
+		</div>
+	</div>
 </div>
 
 
-<footer class='copyright'>
-	<p>Copyright &copy 2016 Brady L. Hurlburt and other rovercode.org contributers<p>
-<footer>
+<div class='row' style='margin-top: 75px'>
+	<div class='col-xs-3 col-s-3 col-md-3 col-lg-3'></div>
+	<div class='col-xs-12 col-s-12 col-md-6 col-lg-6 panel'>
+		<div class='row' style='margin-top: 75px; margin-bottom: 75px'>
+			<div class='col-xs-1 col-s-1 col-md-2 col-lg-2 text-center vcenter'></div>
+			<div class='col-xs-5 col-s-5 col-md-4 col-lg-4 text-center vcenter'>
+				<a href="#" class="btn btn-default demo-button" role="button">Live Demo</a>
+			</div>
+			<div class='col-xs-4 col-s-4 col-md-3 col-lg-3 text-center vcenter'>
+				<a href="#" class="btn btn-default get-started-button" role="button">Get Started</a>
+			</div>
+		</div>
+	</div>
+</div>
 
-<script>
-  $(".panel-body").mouseenter(function () {
-      $("#detailed-setup-instructions").fadeIn();
-    });
-   $(".panel-body").mouseleave(function(){
-     $("#detailed-setup-instructions").fadeOut();
-    });
+<div class='row'>
+	<div class='well' style='margin-top: 40px; text-align: center'>
+		The mission of the rovercode.org community is to provide educators with a capable, easy-to-use, block-based programming environment that can be hosted on low-cost robotics hardware.
+	</div>
+</div>
 
-  $(document).ready(function() {
-    setTimeout(function() {
-      $('.custom-button').effect("highlight", {color:"#92d3aa"}, 3000);
-    }, 3000);
-
-
-  });
-</script>
+<div class='row'>
+	<footer class='copyright'>
+		<p>Copyright &copy 2016 Brady L. Hurlburt and other rovercode.org contributers<p>
+	<footer>
+</div>
 
 </body>
-
-
 
 </html>
